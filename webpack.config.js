@@ -106,7 +106,14 @@ module.exports = {
       {
         test: /\.less$/,
         loader: "style-loader!css-loader!less-loader"
+      },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        options: {
+          // vue-loader options go here
+        }
       }
     ],
   },
-}
+};
