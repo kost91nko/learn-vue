@@ -1,0 +1,44 @@
+{
+    "extends": "airbnb-base/legacy",
+    "rules": {
+        // Override any settings from the "parent" configuration
+        "comma-dangle": [2, "only-multiline"],
+        "comma-spacing": 1,
+        "consistent-return": 0,
+        "eqeqeq": 1,
+        "func-names": 0,
+        "global-require": 0,
+        "import/no-unresolved": 0,
+        "indent": [1, "tab", {"SwitchCase": 1}],
+        "linebreak-style": 0,
+        "max-len": ["error", {"code": 180, "tabWidth": 4, "ignoreUrls": true, "ignoreComments": true}],
+        "no-alert": 0,
+        "no-console": 0,
+        "no-lonely-if": 0,
+        "no-mixed-operators": 0,
+        "no-param-reassign": 0,
+        "no-prototype-builtins": 0,
+        "no-tabs": 0,
+        "no-underscore-dangle": 1,
+        "no-unused-vars": 1,
+        "no-use-before-define": [2, {"functions": false, "classes": true}],
+        "one-var": 0,
+        "padded-blocks": 1,
+        "semi": 1,
+        "space-in-parens": 0,
+        "spaced-comment": [1, "always", { "exceptions": ["-", "+"], "markers": ["/"] }],
+        "vars-on-top": 0
+    },
+    "env": {
+        "browser": true,
+        "node": true
+    },
+    "globals": {
+        "$": true,
+        "angular": true,
+        "google": true,
+        "L": true,
+        "moment": true,
+        "saveAs": true
+    }
+}
