@@ -1,5 +1,6 @@
 {
     "extends": "airbnb-base/legacy",
+    "parser": "babel-eslint",
     "rules": {
         // Override any settings from the "parent" configuration
         "comma-dangle": [2, "only-multiline"],
@@ -11,7 +12,8 @@
         "import/no-unresolved": 0,
         "indent": [1, "tab", {"SwitchCase": 1}],
         "linebreak-style": 0,
-        "max-len": ["error", {"code": 180, "tabWidth": 4, "ignoreUrls": true, "ignoreComments": true}],
+        "max-len": ["error", {"code": 180, "tabWidth":   4, "ignoreUrls": true, "ignoreComments": true}],
+	  	"no-undef": 0,
         "no-alert": 0,
         "no-console": 0,
         "no-lonely-if": 0,
