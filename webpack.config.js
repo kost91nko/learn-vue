@@ -15,6 +15,7 @@ module.exports = {
 	},
 
 	resolve: {
+		extensions: ['.js', '.vue'],
 		modules: [
 			'node_modules',
 		],
@@ -92,20 +93,20 @@ module.exports = {
 
 	module: {
 		rules: [
-			{
-				enforce: 'pre',
-				test: /\.vue$/,
-				loader: 'eslint-loader',
-				include: path.resolve(__dirname, './src'),
-				exclude: /node_modules/
-			},
-			{
-				enforce: 'pre',
-				test: /\.js$/,
-				loader: 'eslint-loader',
-				include: path.resolve(__dirname, './src'),
-				exclude: /node_modules/
-			},
+			// {
+			// 	enforce: 'pre',
+			// 	test: /\.vue$/,
+			// 	loader: 'eslint-loader',
+			// 	include: path.resolve(__dirname, './src'),
+			// 	exclude: /node_modules/
+			// },
+			// {
+			// 	enforce: 'pre',
+			// 	test: /\.js$/,
+			// 	loader: 'eslint-loader',
+			// 	include: path.resolve(__dirname, './src'),
+			// 	exclude: /node_modules/
+			// },
 			{
 				test: /\.jsx?$/,
 				include: [
@@ -123,10 +124,7 @@ module.exports = {
 			},
 			{
 				test: /\.vue$/,
-				loader: 'vue-loader',
-				options: {
-					// vue-loader options go here
-				}
+				loader: 'vue-loader'
 			}
 		],
 	},

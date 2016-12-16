@@ -1,6 +1,7 @@
 import './index.less';
 import _ from 'lodash';
 import axios from 'axios';
+import Hello from './Hello.vue';
 
 window.testClick = new Vue({
 	el: '#click-test',
@@ -17,6 +18,9 @@ window.testClick = new Vue({
 	methods: {
 		childHandler: function (event) {
 			alert('Child text: ' + event.currentTarget);
+			this.styleChild = Object.assign({}, this.styleChild, {
+				border: '1px solid yellow'
+			});
 		},
 		parentHandler: function (event) {
 			alert('Parent text: ' + event.currentTarget);
@@ -116,6 +120,53 @@ window.app7 = new Vue({
 let Todo = {
 	template: '<span>PARAM PAMPARAM</span>'
 };
+
+// createElement
+const getChildrenTextContent = function (children) {
+	return children.map(function (node) {
+		return node.children
+			? getChildrenTextContent(node.children)
+			: node.text;
+	}).join('');
+};
+
+const AnchoredHeading = {
+	render: function (createElement) {
+		// create kebabCase id
+		const headingId = getChildrenTextContent(this.$slots.default)
+			.toLowerCase()
+			.replace(/\W+/g, '-')
+			.replace(/(^-|-$)/g, '');
+
+		return createElement(
+			'h' + this.level,
+			[
+				createElement('a', {
+					attrs: {
+						name: headingId,
+						href: '#' + headingId
+					}
+				}, this.$slots.default)
+			]
+		);
+	},
+	props: {
+		level: {
+			type: Number,
+			required: true
+		}
+	}
+};
+
+const JsxTest = {
+	props: ["tttt"],
+	render(createElement) {     // eslint-disable-line
+		return createElement('div', {
+			template: '{{tttt}}'
+		})
+	}
+};
+/* eslint-disable no-multi-spaces */
 // Since there is already a rich ecosystem of ajax libraries
 // and collections of general-purpose utility methods, Vue core
 // is able to remain small by not reinventing them. This also
@@ -125,13 +176,34 @@ window.watchExampleVM = new Vue({
 	data: {
 		question: '',
 		answer: 'I cannot give you an answer until you ask a question!',
-		currentTodo: Todo
+		currentTodo: Todo,
+		message: 'hello!'
 	},
 	watch: {
 		// whenever question changes, this function will run
 		question: function () {
 			this.answer = 'Waiting for you to stop typing...';
 			this.getAnswer();
+		}
+	},
+	directives: {
+		focus: {
+			inserted: function (el) {
+				console.log(Object.keys(el));
+				el.focus();
+			},
+		},
+		demo: {
+			bind: function (el, binding, vnode) {
+				const s = JSON.stringify;
+				el.innerHTML =
+					'name: '       + s(binding.name) + '<br>' +
+					'value: '      + s(binding.value) + '<br>' +
+					'expression: ' + s(binding.expression) + '<br>' +
+					'argument: '   + s(binding.arg) + '<br>' +
+					'modifiers: '  + s(binding.modifiers) + '<br>' +
+					'vnode keys: ' + Object.keys(vnode).join(', ')
+			}
 		}
 	},
 	methods: {
@@ -167,6 +239,8 @@ window.watchExampleVM = new Vue({
 		'todo-item': {
 			template: '<span>IT\'S A NEW DAY IT\'s A NEW LIFE</span>'
 		},
-
+		'anchored-heading': AnchoredHeading,
+		'jsx-test': JsxTest,
+		Hello
 	}
 });

@@ -62,12 +62,25 @@
 <div id="watch-example">
 	<p>
 		Ask a yes/no question:
-		<input v-model="question">
+		<input v-model="question" v-focus />
+		<div v-demo:hello.a.b="message"></div>
 	</p>
 	<p>{{ answer }}</p>
 	Todo
 	<todo-item></todo-item>
 	<component :is="currentTodo"></component>
+	<anchored-heading :level="3">
+		<h1>Title</h1>
+		<header>Header</header>
+		<section>
+			<ul>
+				<li>Home</li>
+				<li>About</li>
+			</ul>
+		</section>
+	</anchored-heading>
+	<jsx-test tttt="vasya"></jsx-test>
+	<hello></hello>
 </div>
 
 
