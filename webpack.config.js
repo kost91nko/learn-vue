@@ -4,12 +4,17 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
 	entry: {
-		vendor: './src/vendor.js',
-		app: './src/index.js'
+		vendor: [
+			'./src/vendor.js',
+		],
+		app: [
+			'./src/index.js'
+		]
 	},
 
 	output: {
 		path: path.resolve(__dirname, './dist'),
+		publicPath: 'http://localhost:8080/',
 		filename: '[name].js',
 		chunkFilename: '[id].[chunkhash].js'
 	},
@@ -40,7 +45,9 @@ module.exports = {
 		cachedAssets: false,
 		modules: true,
 	},
-
+	performance: {
+		hints: false
+	},
 	devServer: {
 		stats: {
 			assets: true,
@@ -55,13 +62,14 @@ module.exports = {
 			children: true,
 			cached: true,
 			cachedAssets: true,
-			errorDetails: true,
+			errorDetails: false,
 			modules: false,
 			source: true
 		},
 		host: '0.0.0.0',
 		port: 8080,
-		open: false
+		open: false,
+		publicPath: 'http://localhost:8080/',
 	},
 
 
@@ -89,6 +97,10 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template: './src/index.html'
 		}),
+
+		// Hot Module Reloading
+		// new webpack.HotModuleReplacementPlugin(),
+		// new webpack.NoErrorsPlugin()
 	],
 
 	module: {
