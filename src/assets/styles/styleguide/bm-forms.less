@@ -1,0 +1,57 @@
+// All Be-Mobile corporate identity form components
+
+// input field
+.bm-input,
+.bm-input-group-addon {
+    border-radius: 2px;
+}
+
+// focus on inputfield
+.bm-input:focus {
+    border-color: @bm-blue-50;
+    box-shadow: inset 0 1px 1px @bm-light-grey, 0 0 10px @bm-blue-10;
+}
+
+// addon
+.bm-input-group-addon {
+    background-color: @bm-light-grey;
+    color: @bm-dark-grey;
+}
+
+// checkbox en radiobutton
+.bm-label-radio, .bm-label-checkbox{
+	font-weight: 400;
+}
+
+.bm-label-radio input[type="radio"], .bm-label-checkbox input[type="checkbox"]{
+    display:none;
+}
+
+.bm-label-radio span:before, .bm-label-checkbox span:before{
+	font-family: "FontAwesome";
+    font-style: normal;
+    width: 1em;
+    height: 1em;
+    margin-right: .3em;
+    color: @bm-medium-grey-20;
+    margin-right: 10px;
+}
+.bm-label-radio input[type="radio"]:checked ~ span:before,  .bm-label-checkbox input[type="checkbox"]:checked ~ span:before{
+    color: @bm-blue;
+}
+
+.bm-label-radio span:before,{
+	content: '\f10c';
+}
+
+.bm-label-radio input[type="radio"]:checked ~ span:before{
+	content: '\f111';
+}
+.bm-label-checkbox span:before{
+    content: '\f096';
+}
+
+.bm-label-checkbox input[type="checkbox"]:checked ~ span:before {
+    content: '\f14a';
+}
+

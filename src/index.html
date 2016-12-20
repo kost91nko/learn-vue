@@ -1,88 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Title</title>
+    <meta charset="UTF-8">
+    <title></title>
 </head>
 <body>
-
-<div id="click-test" @click.once="parentHandler" v-bind:style="styleParent">
-	<button @click="childHandler" v-bind:style="styleChild">
-		Click
-	</button>
-</div>
-
-<div id="card">
-	<div class="box">
-		<header>{{ title }}</header>
-		<div v-html="content"></div>
-	</div>
-	<div v-for="item in items" :key="item.id">
-		<span>{{item.name}}</span>
-	</div>
-</div>
-
-<div id="card-2">
-	<div class="box">
-		<span v-bind:title="message">Hover your mouse over me for a few seconds to see my dynamically bound title!</span>
-	</div>
-</div>
-
-<div id="app-4">
-	<ol>
-		<li v-for="todo in todos">
-			{{ todo.text }}
-		</li>
-	</ol>
-</div>
-
-<div id="app-5">
-	<p>{{message}}</p>
-	<button v-on:click="reverseMessage">Reverse Message</button>
-</div>
-
-<div id="app-6">
-	<p>{{ message }}</p>
-	<input v-model="message">
-</div>
-
-<div id="example">
-	<p>Original message: "{{ message }}"</p>
-	<p>Computed reversed message: "{{ reversedMessage }}"</p>
-</div>
-
-<div id="demo">
-	<p>FirstName: <input type="text" v-model.lazy="firstName"/></p>
-	<p>LastName: <input type="text" v-model="lastName"/></p>
-	<p>Age <input type="number" v-model.number="age" /> </p>
-	<p>Watched: {{ fullName }}</p>
-	<p>Computed: {{ computedFullName }}</p>
-</div>
-
-<div id="watch-example">
-	<p>
-		Ask a yes/no question:
-		<input v-model="question" v-focus />
-		<div v-demo:hello.a.b="message"></div>
-	</p>
-	<p>{{ answer }}</p>
-	Todo
-	<todo-item></todo-item>
-	<component :is="currentTodo"></component>
-	<anchored-heading :level="3">
-		<h1>Title</h1>
-		<header>Header</header>
-		<section>
-			<ul>
-				<li>Home</li>
-				<li>About</li>
-			</ul>
-		</section>
-	</anchored-heading>
-	<jsx-test tttt="vasya"></jsx-test>
-	<hello></hello>
-</div>
-
-
+	<div id="app"></div>
 </body>
 </html>

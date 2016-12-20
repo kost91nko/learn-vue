@@ -1,0 +1,63 @@
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  position: relative;
+  font-family: @bm-font;
+}
+
+#app-container {
+  height: 100vh;
+  width: auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+#main-content {
+  padding: 30px;
+  overflow-y: auto;
+
+  .bm-scrollbar;
+}
+
+#view-container {
+  height: 100%;
+  flex: 1;
+  overflow-x: hidden;
+}
+
+@media only screen {
+  #logo_container {
+	width: 60px;
+  }
+  #nav_title {
+	margin-left: 0;
+	font-size: 24px;
+  }
+  .bm-icon {
+	display: block;
+	width: 100px;
+	height: auto;
+  }
+  .bm-logo-tagline {
+	display: none;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .bm-icon {
+	display: none;
+  }
+  .bm-logo-tagline {
+	display: block;
+  }
+  #logo_container {
+	width: 200px;
+  }
+  #nav_title {
+	font-size: 28px;
+  }
+}

@@ -1,15 +1,12 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+let FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 module.exports = {
 	entry: {
-		vendor: [
-			'./src/vendor.js',
-		],
-		app: [
-			'./src/index.js'
-		]
+		vendor: './src/vendor.js',
+		app: './src/app.js'
 	},
 
 	output: {
@@ -69,6 +66,7 @@ module.exports = {
 		host: '0.0.0.0',
 		port: 8080,
 		open: false,
+		hot: true,
 		publicPath: 'http://localhost:8080/',
 	},
 
@@ -98,9 +96,41 @@ module.exports = {
 			template: './src/index.html'
 		}),
 
+		new FaviconsWebpackPlugin({
+			// Your source logo
+			logo: './src/assets/styles/styleguide/bm-logo/images/bm-icon.png',
+			// The prefix for all image files (might be a folder or a name)
+			prefix: 'icons-[hash]/',
+			// Emit all stats of the generated icons
+			emitStats: false,
+			// Generate a cache file with control hashes and
+			// don't rebuild the favicons until those hashes change
+			persistentCache: true,
+			// Inject the html into the html-webpack-plugin
+			inject: true,
+			// favicon background color (see https://github.com/haydenbleasel/favicons#usage)
+			background: '#fff',
+			// favicon app title (see https://github.com/haydenbleasel/favicons#usage)
+			title: 'Be-Mobile',
+
+			// which icons should be generated (see https://github.com/haydenbleasel/favicons#usage)
+			icons: {
+				android: true,
+				appleIcon: true,
+				appleStartup: true,
+				coast: false,
+				favicons: true,
+				firefox: true,
+				opengraph: false,
+				twitter: false,
+				yandex: false,
+				windows: false
+			}
+		}),
+
 		// Hot Module Reloading
-		// new webpack.HotModuleReplacementPlugin(),
-		// new webpack.NoErrorsPlugin()
+		new webpack.HotModuleReplacementPlugin(),
+		new webpack.NoErrorsPlugin()
 	],
 
 	module: {
@@ -137,7 +167,19 @@ module.exports = {
 			{
 				test: /\.vue$/,
 				loader: 'vue-loader'
-			}
+			},
+			{
+				test: /\.(png|jpg|jpeg|svg|woff|woff2|gif)$/,
+				loader: 'url-loader',
+				query: {
+					limit: 100,
+					name: "[path][name].[ext]",
+				}
+			},
+			{
+				test: /\.(eot|ttf|wav|mp3)$/,
+				loader: 'file-loader',
+			},
 		],
 	},
 };

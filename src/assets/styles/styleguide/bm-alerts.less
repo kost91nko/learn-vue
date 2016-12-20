@@ -1,0 +1,52 @@
+// Don't forget to add the following files to your bundle via the css build process:
+/*
+    <link rel="stylesheet" href="node_modules/ng-toast/dist/ngToast.min.css"/>
+    <link rel="stylesheet" href="node_modules/ng-toast/dist/ngToast-animations.min.css"/>
+*/
+
+.ng-toast.ng-toast--right .ng-toast__list {
+    margin-right: 15px;
+}
+
+div.alert {
+    color: @bm-white;
+    border-width: 1px;
+    border-style: solid;
+    margin-bottom: 15px;
+    cursor: pointer;
+
+    span i.toast-icon {
+        padding-right: 15px;
+    }
+
+    &.alert-default {
+        color: @bm-dark-grey-70;
+        background-color: @bm-light-grey;
+        border-color: @bm-dark-grey-70;
+        text-shadow: 0 1px 0 @bm-grey-20;
+    }
+
+    &.alert-info {
+        background-color: @bm-blue-80;
+        border-color: @bm-blue;
+        text-shadow: 0 1px 0 @bm-blue-90;
+    }
+
+    &.alert-success {
+        background-color: @bm-green-80;
+        border-color: @bm-green;
+        text-shadow: 0 1px 0 @bm-green-90;
+    }
+
+    &.alert-warning {
+        background-color: @bm-orange-80;
+        border-color: @bm-orange;
+        text-shadow: 0 1px 0 @bm-orange-90;
+    }
+
+    &.alert-danger {
+        background-color: @bm-red-80;
+        border-color: @bm-red;
+        text-shadow: 0 1px 0 @bm-red-90;
+    }
+}
