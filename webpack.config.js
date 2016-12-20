@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
 	entry: {
 		vendor: './src/vendor.js',
-		app: './src/index.js'
+		app: './src/app.js'
 	},
 
 	output: {
@@ -125,7 +125,20 @@ module.exports = {
 			{
 				test: /\.vue$/,
 				loader: 'vue-loader'
-			}
+			},
+			{
+				test: /\.(png|jpg|jpeg|svg|woff|woff2|gif)$/,
+				loader: 'url-loader',
+				query: {
+					limit: 100,
+					name: "[path][name].[ext]",
+					context: 'app/assets/',
+				}
+			},
+			{
+				test: /\.(eot|ttf|wav|mp3)$/,
+				loader: 'file-loader',
+			},
 		],
 	},
 };

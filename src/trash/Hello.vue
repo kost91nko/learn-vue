@@ -15,7 +15,9 @@
 	};
 </script>
 
-<style lang="css" scoped>
+<style lang="less" scoped>
+	@base: #f938ab;
+
 	p {
 		font-size: 2em;
 		text-align: center;

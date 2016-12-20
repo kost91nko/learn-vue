@@ -13,6 +13,7 @@
   "dependencies": {
     "axios": "^0.15.3",
     "babel-polyfill": "^6.16.0",
+    "bootstrap-less": "^3.3.8",
     "lodash": "^4.17.2",
     "vue": "^2.1.4"
   },
@@ -32,14 +33,19 @@
     "eslint-config-airbnb-base": "^11.0.0",
     "eslint-loader": "^1.6.1",
     "eslint-plugin-import": "^2.2.0",
+    "file-loader": "^0.9.0",
     "html-webpack-plugin": "^2.24.1",
     "jade": "^1.11.0",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
     "raw-loader": "^0.5.1",
     "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
     "vue-loader": "^10.0.0",
+    "vue-router": "^2.1.1",
     "vue-template-compiler": "^2.1.0",
+    "vuex": "^2.1.1",
+    "vuex-router-sync": "^4.0.1",
     "webpack": "^2.1.0-beta",
     "webpack-dev-server": "^2.1.0-beta"
   }
