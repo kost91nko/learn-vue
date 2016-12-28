@@ -2,3 +2,4 @@ node_modules
 .idea
 jenkins
 yarn*
+npm-debug*
