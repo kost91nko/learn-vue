@@ -8,12 +8,13 @@
   "scripts": {
     "start": "webpack-dev-server",
     "webpack": "webpack",
-    "lint": "eslint ."
+    "lint": "eslint . || exit 0"
   },
   "dependencies": {
     "axios": "^0.15.3",
     "babel-polyfill": "^6.16.0",
     "bootstrap-less": "^3.3.8",
+    "browsersync": "^0.0.1-security",
     "leaflet": "^1.0.2",
     "lodash": "^4.17.2",
     "normalize.less": "^1.0.0",

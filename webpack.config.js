@@ -67,6 +67,7 @@ module.exports = {
 		port: 8080,
 		open: false,
 		hot: true,
+		inline: true,
 		publicPath: 'http://localhost:8080/',
 	},
 

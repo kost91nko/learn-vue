@@ -16,7 +16,7 @@ const app = new Vue({
 			<template slot="header">
 				<router-view name="header"></router-view>
 			</template>
-
+			
 			<router-view></router-view>
 
 			<template slot="footer">
